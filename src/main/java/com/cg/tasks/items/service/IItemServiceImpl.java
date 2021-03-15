@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.tasks.items.dao.*;
 import com.cg.tasks.items.entities.*;
+
 @Service
 public class IItemServiceImpl implements IItemService {
 
@@ -18,8 +19,7 @@ public class IItemServiceImpl implements IItemService {
 
 	@Autowired
 	EntityManager em;
-	
-	
+
 	public String generateItemId() {
 		Random random = new Random();
 		StringBuilder builder = new StringBuilder();
@@ -35,8 +35,7 @@ public class IItemServiceImpl implements IItemService {
 	@Override
 	public Item create(Double price, String description) {
 
-		
-		Item item = new Item( price, description);
+		Item item = new Item(price, description);
 		String itemId = generateItemId();
 		LocalDateTime now = LocalDateTime.now();
 		item.setId(itemId);

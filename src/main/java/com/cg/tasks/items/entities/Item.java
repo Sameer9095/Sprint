@@ -4,26 +4,22 @@ import java.time.LocalDateTime;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 
-
 @Entity
 public class Item {
 	@Id
 	String id;
-	
+
 	Double price;
-	
+
 	String description;
-	
+
 	LocalDateTime addedDate;
-	
-	
-	
 
 	public Item(Double price, String description) {
-		
+
 		this.price = price;
 		this.description = description;
-		
+
 	}
 
 	public String getId() {
@@ -58,7 +54,6 @@ public class Item {
 		this.addedDate = addedDate;
 	}
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,6 +70,5 @@ public class Item {
 			return false;
 		return true;
 	}
-	
 
 }

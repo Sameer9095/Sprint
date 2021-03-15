@@ -11,11 +11,11 @@ import com.cg.tasks.customerms.entities.Customer;
 import com.cg.tasks.customerms.entities.Account;
 
 @Service
-public class ICustomerServiceImpl implements ICustomerService{
-	
+public class ICustomerServiceImpl implements ICustomerService {
+
 	@Autowired
 	ICustomerDAO dao;
-	
+
 	@Autowired
 	EntityManager entityManager;
 
@@ -40,16 +40,12 @@ public class ICustomerServiceImpl implements ICustomerService{
 	@Override
 	public Customer addAmount(Long customerId, double amount) {
 		Customer customer = dao.findById(customerId);
-		Account account=customer.getAccount();
-		account.setBalance(account.getBalance()  + amount);
+		Account account = customer.getAccount();
+		account.setBalance(account.getBalance() + amount);
 		entityManager.persist(account);
 		customer.getAccount().setBalance(amount);
 		customer = dao.update(customer);
 		return customer;
 	}
-	
-	
-	
-
 
 }
